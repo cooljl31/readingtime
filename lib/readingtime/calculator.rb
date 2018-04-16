@@ -21,6 +21,8 @@ module Readingtime
         format_words((minutes + seconds))
       when :approx
         format_approx((minutes + seconds))
+      when :approx_short
+        format_approx_short((minutes + seconds))
       when :full
         hms = hms(minutes + seconds)
         format_full(hms)
@@ -72,6 +74,14 @@ module Readingtime
         '%d minutes' % (seconds.to_f/60).round
       else
         '%d seconds' % seconds
+      end
+    end
+
+    def format_approx_short(seconds)
+      if seconds > 59
+        '%d mins' % (seconds.to_f/60).round
+      else
+        '%d secs' % seconds
       end
     end
 

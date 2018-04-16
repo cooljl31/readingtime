@@ -32,10 +32,12 @@ describe Readingtime::Calculator do
       subject.reading_time(two_hundred_words, :format => :approx).should == "1 minutes"
       subject.reading_time(three_hundred_words, :format => :long).should == "1 minutes and 33 seconds"
       subject.reading_time(three_hundred_words,:format => :approx).should == "2 minutes"
+      subject.reading_time(three_hundred_words,:format => :approx_short).should == "2 mins"
     end
 
     it "should return a time in seconds when using approx with time less than 1 minute" do
       subject.reading_time(ten_words, :format => :approx).should == "3 seconds"
+      subject.reading_time(ten_words, :format => :approx).should == "3 secs"
       subject.reading_time(three_hundred_words, :format => :full).should == '1 min 33 secs'
       subject.reading_time(two_hundred_words, :format => :raw).should == [0, 1, 0]
     end

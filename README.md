@@ -54,6 +54,10 @@ You can also send in options to modify the formatting.
     @article.body.reading_time :format => :approx
     => "4 minutes"
 
+    # Approximate short output to mins if > 59 else secs
+    @article.body.reading_time :format => :approx_short
+    => "4 mins"
+
     # Full text output
     @article.body.reading_time :format => :full
     => "1 hr 3 mins 36 secs"
